@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.tehkode</groupId>
     <artifactId>ChatManager</artifactId>
-    <version>1.19.1</version>
+    <version>1.20.5</version>
     <name>ChatManager</name>
     <url>https://github.com/t3hk0d3/ChatManager</url>
     <issueManagement>
@@ -11,33 +11,25 @@
         <url>https://github.com/t3hk0d3/ChatManager/issues</url>
     </issueManagement>
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>${project.name}</finalName>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0.2</version>
+                <version>3.1</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
                 </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <descriptors>
-                        <descriptor>src/main/assembly/package.xml</descriptor>
-                    </descriptors>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>build</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
@@ -45,18 +37,18 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.4.7-R1.1-SNAPSHOT</version>
+            <version>1.7.5-R0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>ru.tehkode</groupId>
             <artifactId>PermissionsEx</artifactId>
-            <version>1.18</version>
+            <version>1.21-SNAPSHOT</version>
         </dependency>
         <!-- Multiverse-Core Dependency -->
         <dependency>
             <groupId>com.onarandombox.multiversecore</groupId>
             <artifactId>Multiverse-Core</artifactId>
-            <version>2.4</version>
+            <version>2.5</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
@@ -67,12 +59,16 @@
             <id>bukkit-repo</id>
             <url>http://repo.bukkit.org/content/groups/public</url>
         </repository>
-        <!-- Repo for Multiverse-Core Dependency -->
+        <!-- Repo for PEX Dependency -->
         <repository>
-            <id>OnARandomBox</id>
-            <url>http://repo.onarandombox.com/content/groups/public</url>
+            <id>PEX Repo</id>
+            <url>http://ci.nixium.com/plugin/repository/everything/</url>
         </repository>
         <!-- Repo for Multiverse-Core Dependency -->
+        <repository>
+            <id>Multiverse-Core Repo</id>
+            <url>http://repo.onarandombox.com/content/groups/public</url>
+        </repository>
     </repositories>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
